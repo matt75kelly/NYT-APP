@@ -77,7 +77,7 @@ function updateDisplay(queryUrl){
             newDiv.append(webLink);
 
             // Utilizes the ID of the div at the very bottom that will be holding our articles
-            $(".container").append(newDiv);
+            $("#articles").append(newDiv);
         }
     });
     }
@@ -88,7 +88,7 @@ $(document).ready(function(){
     $("#btnSearch").on("click", function(event){
         event.preventDefault();
         pullFormData(formData);
-        buildUrl(formData);
+        var url = buildUrl(formData);
         updateDisplay(url);
     });   
     // Uses the ID of the Clear Button 
