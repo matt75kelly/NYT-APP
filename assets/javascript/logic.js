@@ -1,4 +1,6 @@
 // Declare Global Variables Here
+console.log("hello");
+
 var formData = {
     searchTerm: "",
     recordLimit: 0,
@@ -12,7 +14,7 @@ function clearFormData(object){
     object.searchTerm= "";
     object.recordLimit= 0;
     object.yearStart= 0;
-    pbject.yearEnd= 0;
+    object.yearEnd= 0;
 
     // Uses the ID of our Default Option in our Select Element This Select Element should have it's first Option Element be empty text
     $("input").empty();
@@ -25,7 +27,7 @@ function pullFormData (object){
     object.searchTerm = $("#search").val();
     object.recordLimit = $("#records").val();
     object.yearStart = $("#startDate").val();
-    ojbect.yearEnd = $("#endDate").val();
+    object.yearEnd = $("#endDate").val();
 }
 // Returns the URL that will be used with our API call
 function buildUrl(object){
