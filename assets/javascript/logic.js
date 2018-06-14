@@ -18,14 +18,14 @@ function clearFormData(object){
 
     // Uses the ID of our Default Option in our Select Element This Select Element should have it's first Option Element be empty text
     $("input").empty();
-    $("#optionDefault").attr("selected", "selected");
+    $("#default").attr("selected", "selected");
 }
 // Updates our FormData object with the data entered in by the end user
 function pullFormData (object){
 
     // utilizes the IDs on each of the Input elements in the Form
     object.searchTerm = $("#search").val();
-    object.recordLimit = $("#records").val();
+    object.recordLimit = $("#sel1").val();
     object.yearStart = $("#startDate").val();
     object.yearEnd = $("#endDate").val();
 }
@@ -77,7 +77,7 @@ function updateDisplay(queryUrl){
             newDiv.append(webLink);
 
             // Utilizes the ID of the div at the very bottom that will be holding our articles
-            $("#articles").append(newDiv);
+            $(".container").append(newDiv);
         }
     });
     }

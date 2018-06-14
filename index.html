@@ -23,7 +23,7 @@
                 <table>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search term">
+                            <input type="text" class="form-control" id="search" placeholder="Search term">
                             <br>
                         </div>
             </p>
@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label for="sel1">Select list:</label>
                 <select class="form-control" id="sel1">
-                    <option>1</option>
+                    <option id="default">1</option>
                     <option>5</option>
                     <option>10</option>
                 </select>
@@ -45,15 +45,15 @@
             <hr class="my-4">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Start year (optional)">
+                    <input type="text" class="form-control" id="startDate" placeholder="Start year (optional)">
                     <br>
                 </div>
                 <p class="lead">
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="End year (optional)">
+                            <input type="text" class="form-control" id="endDate" placeholder="End year (optional)">
                             <br>
-                            <button type="search" class="btn btn-default">Search</button>
+                            <button type="search" class="btn btn-default" id="btnSearch">Search</button>
                         </div>
                 </p>
                 </table>
