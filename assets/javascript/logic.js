@@ -7,8 +7,21 @@ var formData = {
 };
 
 // Declare and Define Function Here
+// clears the FormData and the input fields on the DOM
+function clearFormData(object){
+    object.searchTerm= "";
+    object.recordLimit= 0;
+    object.yearStart= 0;
+    pbject.yearEnd= 0;
+
+    // Uses the ID of our Default Option in our Select Element This Select Element should have it's first Option Element be empty text
+    $("input").empty();
+    $("#optionDefault").attr("selected", "selected");
+}
 // Updates our FormData object with the data entered in by the end user
 function pullFormData (object){
+
+    // utilizes the IDs on each of the Input elements in the Form
     object.searchTerm = $("#search").val();
     object.recordLimit = $("#records").val();
     object.yearStart = $("#startDate").val();
@@ -23,6 +36,7 @@ function buildUrl(object){
     var url = urlRoot + keyWord + dates + $.param({
     'api-key': "c93408eb36ce492eb8eb7d53bce88c51"
     });
+    console.log(url);
     return url;
 }
 // Uses the AJAX method to get the search results from the API and add them to the display
@@ -46,6 +60,12 @@ function updateDisplay(queryUrl){
             var webLink = $("<a>");
             var newDiv = $("<div>");
 
+            // Adds classes to the dynamically created elements so they can be styled later
+            titleDiv.addClass("articleTitle");
+            short.addClass("articleSummary");
+            weblink.addClass("articleLink");
+            newDiv.addClass("articleWrapper");
+
             titleDiv.text(i + " " + title);
             short.text(snip);
             webLink.text(linkUrl);
@@ -54,6 +74,7 @@ function updateDisplay(queryUrl){
             newDiv.append(short);
             newDiv.append(webLink);
 
+            // Utilizes the ID of the div at the very bottom that will be holding our articles
             $("#articles").append(newDiv);
         }
     });
@@ -61,15 +82,15 @@ function updateDisplay(queryUrl){
         
 // Main Program Starts Here
 $(document).ready(function(){
-
+    // Uses the ID of the Search Button
     $("#btnSearch").on("click", function(event){
         event.preventDefault();
         pullFormData(formData);
         buildUrl(formData);
         updateDisplay(url);
-    });    
+    });   
+    // Uses the ID of the Clear Button 
     $("#btnClear").on("click", function(event){
-
-        
+        clearFormData(formData);
     });
 });
